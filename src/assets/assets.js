@@ -76,6 +76,14 @@ import img_302 from './img_302.jpeg';
 import img_401 from './img_401.jpeg';
 import img_402 from './img_402.jpeg';
 import img_403 from './img_403.jpeg';
+import model1 from './model1.jpg';
+import model2 from './model2.jpg';
+import model3 from './model3.jpg';
+import model4 from './model4.jpg';
+import model5 from './model5.jpg';
+import model6 from './model6.jpg';
+import model7 from './model7.jpg';
+import { m } from 'framer-motion';
 
 
 export const assets = {
@@ -100,7 +108,14 @@ export const assets = {
     img_102,
     img_191,
     img_251,
-    img_41
+    img_41,
+    model1,
+    model2,
+    model3,
+    model4,
+    model5,
+    model6,
+    model7,
 
 };
 

@@ -8,11 +8,13 @@ import Navbar from '../components/Navbar.jsx'
 import { assets } from '../assets/assets.js'
 
 const bgImages = [
-  assets.jewelmodel2,
-  assets.img_102,
-  assets.img_191,
-  assets.img_251,
-  assets.img_41
+  assets.model1,
+  assets.model2,
+  assets.model3,
+  assets.model4,
+  assets.model5,
+  assets.model6,
+  assets.model7,
 ]
 
 const Home = () => {
@@ -25,16 +27,18 @@ const Home = () => {
     return () => clearInterval(interval)
   }, [])
 
-  return (
-    <div>
-      <Navbar bgImages={bgImages} current={current} />
-      <Hero bgImages={bgImages} current={current} />
+return (
+  <div>
+    <Navbar bgImages={bgImages} current={current} />
+    <Hero bgImages={bgImages} current={current} setCurrent={setCurrent} />
+    <div className="px-4 sm:px-8 md:px-16 lg:px-24">
       <LatestCollection />
       <BestSeller />
       <OurPolicy />
       <NewsLetter />
     </div>
-  )
+  </div>
+)
 }
 
 export default Home
