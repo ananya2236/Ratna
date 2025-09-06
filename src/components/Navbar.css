@@ -1,0 +1,23 @@
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 80%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  border-radius: 1px;
+}
+
+.nav-underline:hover::after,
+.nav-underline.active::after {
+  transform: translateX(-50%) scaleX(1);
+}

@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react'
 import { assets } from '../assets/assets.js'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext.js'
+import './Navbar.css'
 
 const Navbar = () => {
     const [visible, setVisible] = useState(false)
@@ -42,16 +43,24 @@ const Navbar = () => {
             style={{ minHeight: '64px' }}
         >
 
-    <div className={`relative z-20 flex items-center justify-between py-1 font-medium max-w-7xl mx-auto px-4
+    <div className={`relative z-20 flex items-center justify-between py-4 font-small max-w-7xl mx-auto px-4
         ${!scrolled && location.pathname === '/' ? 'text-white' : 'text-black'}
     `}>
         <Link to='/'><img src={assets.logo} className={`w-30 ${!scrolled && location.pathname === '/' ? 'filter invert' : ''}`} alt="" /></Link>
-        <ul className='hidden sm:flex gap-5 text-sm text-inherit'>
-            <NavLink to='/' className='flex flex-col items-center gap-1'><p>HOME</p></NavLink>
-            <NavLink to='/collection' className='flex flex-col items-center gap-1'><p>COLLECTION</p></NavLink>
-            <NavLink to='/about' className='flex flex-col items-center gap-1'><p>ABOUT</p></NavLink>
-            <NavLink to='/contact' className='flex flex-col items-center gap-1'><p>CONTACT</p></NavLink>
-        </ul>
+        <ul className='hidden sm:flex gap-16 text-sm text-inherit'>
+    <Link to='/' className='flex flex-col items-center gap-2'>
+        <p className="nav-underline">HOME</p>
+    </Link>
+    <Link to='/collection' className='flex flex-col items-center gap-2'>
+        <p className="nav-underline">COLLECTION</p>
+    </Link>
+    <NavLink to='/about' className='flex flex-col items-center gap-2'>
+        <p className="nav-underline">ABOUT</p>
+    </NavLink>
+    <NavLink to='/contact' className='flex flex-col items-center gap-2'>
+        <p className="nav-underline">CONTACT</p>
+    </NavLink>
+</ul>
         <div className='flex items-center gap-6'>
             <img onClick={() => setShowSearch(true)} src={assets.search} className={`w-5 cursor-pointer ${!scrolled && location.pathname === '/' ? 'filter invert' : ''}`} alt="" />
             <div className='group relative'>

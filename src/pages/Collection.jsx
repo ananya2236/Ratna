@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import SearchBar from '../components/SearchBar.jsx'; 
 import { useContext } from 'react';
 import { ShopContext } from "../context/ShopContext.js";
 import { assets } from '../assets/assets.js';
@@ -80,6 +81,8 @@ const Collection = () => {
   },[sortType]);
 
   return (
+    <div>
+    {showSearch && <SearchBar />}
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-30 border-t'>
       {/* Filter Options */}
       <div className='min-w-60'>
@@ -150,6 +153,7 @@ const Collection = () => {
           }
         </div>
       </div>
+    </div>
     </div>
   );
 };
