@@ -13,16 +13,22 @@ const Hero = ({ bgImages, current, setCurrent }) => {
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Images */}
-      {bgImages.map((img, idx) => (
-        <img
-          key={idx}
-          src={img}
-          alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === current ? 'opacity-100' : 'opacity-0'}`}
-          style={{ zIndex: 1 }}
-        />
-      ))}
+      {/* Backgrounds with fade animation */}
+<div className="absolute inset-0 w-full h-full z-[1]">
+  {bgImages.map((img, idx) => (
+    <div
+      key={idx}
+      className="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out"
+      style={{
+        backgroundImage: `url(${img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        opacity: idx === current ? 1 : 0,
+      }}
+    ></div>
+  ))}
+</div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/0 z-10"></div>

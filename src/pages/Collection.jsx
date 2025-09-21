@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SearchBar from '../components/SearchBar.jsx'; 
+import SearchBar from '../components/SearchBar.jsx';
 import { useContext } from 'react';
 import { ShopContext } from "../context/ShopContext.js";
 import { assets } from '../assets/assets.js';
