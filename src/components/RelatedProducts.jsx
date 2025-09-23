@@ -2,10 +2,19 @@ import React, { useEffect, useState, useContext } from 'react';
 import { ShopContext } from '../context/ShopContext'; // Make sure this path is correct
 import Title from './Title'; // Make sure this path is correct
 import Productitem from './Productitem'; // Make sure this path is correct
+import { useNavigate } from 'react-router-dom';
 
 const RelatedProducts = ({ category, subcategory }) => {
   const { products } = useContext(ShopContext);
   const [related, setRelated] = useState([]);
+  const navigate = useNavigate();
+  // Monitor URL changes and scroll to top
+  useEffect(() => {
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
+    });
+  }, [location.pathname]);
 
   useEffect(() => {
     // Debug log to see props and products
@@ -30,6 +39,14 @@ const RelatedProducts = ({ category, subcategory }) => {
       setRelated([]);
     }
   }, [products, category, subcategory]);
+
+  const handleProductClick = (productId) => {
+    // Navigate to product page
+    navigate(`/product/${productId}`);
+    // Scroll to top immediately
+    window.scrollTo(0, 0);
+  };  
+
 
   return (
     <div className="my-24">
