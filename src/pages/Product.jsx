@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext.js';
 import { assets } from '../assets/assets.js';
+import RelatedProducts from '../components/RelatedProducts.jsx';
 
 const Product = () => {
 
@@ -70,7 +71,7 @@ useEffect(()=>{
             <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
             <button className='mt-10 cursor-pointer bg-black text-white px-8 py-3  text-sm active:bg-gray-700'>ADD TO CART</button>
             <hr className='mt-8 sm:w-4/5 mb-5'/>
-            <div classname="text-sm text-gray-500 mt-5 flex flex-col gap-1">
+            <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
               <p>100% Original Product.</p>
               <p>Cash on Delivery is available on this produc.</p>
               <p>Easy Retrun and Exchange Policy in 7 days.</p>
@@ -78,7 +79,34 @@ useEffect(()=>{
         </div>
       </div>
       
-      {/* ----------Decription and Review Section--------------- */}
+      {/* ---------- Description and Review Section --------------- */}
+      <div className='mt-20'>
+        <div className='flex'>
+          {/* Tabs */}
+          <p className='border border-gray-300 px-5 py-3 text-sm'>Description</p>
+          <p className='border border-gray-300 px-5 py-3 text-sm'>Reviews (122)</p>
+        </div>
+
+        {/* Description content */}
+        <div className='flex flex-col gap-4 border border-gray-200 px-6 py-6 text-sm text-gray-500'>
+          <p>
+            Crafted with precision and passion, our jewellery blends traditional artistry with contemporary design. Each piece is made from high-quality, ethically sourced materials and finished by skilled artisans to ensure brilliance, durability, and a luxurious feel.
+          </p>
+          <p>
+            Whether you are celebrating a milestone, gifting a loved one, or simply indulging yourself, our collections — from delicate necklaces to statement earrings — are designed to add sparkle to every moment.
+          </p>
+          <p>
+            We pride ourselves on authenticity, quality, and exceptional customer care. Your purchase isn’t just jewellery; it’s a story, a memory, and a style signature you’ll cherish for years to come.
+          </p>
+        </div>
+
+        {/* -------Display Related Products */}
+        <RelatedProducts category={productData.category} subcategory={productData.subcategory}/>
+
+
+      </div>
+
+
     </div>
   ) : <div className='opacity-0'></div>
 }
